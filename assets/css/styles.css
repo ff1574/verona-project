@@ -566,6 +566,217 @@ p {
 }
 
 /* ===================================
+   Image Lightbox
+   =================================== */
+
+.lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+
+.lightbox-active {
+  display: flex;
+}
+
+.lightbox-backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.95);
+  cursor: pointer;
+}
+
+.lightbox-content {
+  position: relative;
+  max-width: 90vw;
+  max-height: 90vh;
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.lightbox-image {
+  max-width: 100%;
+  max-height: 85vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: var(--border-radius);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  animation: lightboxZoomIn 0.3s ease;
+}
+
+@keyframes lightboxZoomIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.lightbox-caption {
+  color: white;
+  font-family: var(--font-secondary);
+  font-size: var(--font-size-base);
+  margin-top: var(--spacing-md);
+  text-align: center;
+  max-width: 80%;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Lightbox Controls */
+.lightbox-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background-color: rgba(220, 38, 38, 0.9);
+  color: white;
+  border: 2px solid rgba(220, 38, 38, 1);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  font-size: 2rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: background-color var(--transition-base),
+    transform var(--transition-base), box-shadow var(--transition-base);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10001;
+  font-weight: var(--font-weight-bold);
+}
+
+.lightbox-close:hover {
+  background-color: rgba(239, 68, 68, 1);
+  transform: rotate(90deg);
+  box-shadow: 0 4px 12px rgba(220, 38, 38, 0.5);
+}
+
+.lightbox-prev,
+.lightbox-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
+  border: 2px solid white;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  font-size: 2.5rem;
+  font-weight: 300;
+  cursor: pointer;
+  transition: background-color var(--transition-base),
+    transform var(--transition-base);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  z-index: 10001;
+  line-height: 0;
+}
+
+.lightbox-prev {
+  left: 20px;
+  padding-right: 2px;
+}
+
+.lightbox-next {
+  right: 20px;
+  padding-left: 2px;
+}
+
+.lightbox-prev:hover,
+.lightbox-next:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.lightbox-prev:hover {
+  transform: translateY(-50%) translateX(-5px);
+}
+
+.lightbox-next:hover {
+  transform: translateY(-50%) translateX(5px);
+}
+
+/* Mobile adjustments */
+@media (max-width: 48em) {
+  .lightbox-close {
+    top: 10px;
+    right: 10px;
+    width: 40px;
+    height: 40px;
+    font-size: 1.5rem;
+  }
+
+  .lightbox-prev,
+  .lightbox-next {
+    width: 40px;
+    height: 40px;
+    font-size: 2rem;
+  }
+
+  .lightbox-prev {
+    left: 10px;
+    padding-right: 2px;
+  }
+
+  .lightbox-next {
+    right: 10px;
+    padding-left: 2px;
+  }
+
+  .lightbox-image {
+    max-height: 80vh;
+  }
+
+  .lightbox-caption {
+    font-size: var(--font-size-sm);
+    margin-top: var(--spacing-sm);
+  }
+}
+
+/* Gallery image cursor hint */
+.gallery-image {
+  cursor: pointer;
+  position: relative;
+}
+
+.gallery-image::after {
+  content: "🔍";
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  padding: var(--spacing-xs);
+  border-radius: var(--border-radius);
+  font-size: 1rem;
+  opacity: 0;
+  transition: opacity var(--transition-base);
+  pointer-events: none;
+}
+
+.gallery-image:hover::after {
+  opacity: 1;
+}
+
+/* ===================================
    TEXT BLOCK COMPONENTS
    =================================== */
 
