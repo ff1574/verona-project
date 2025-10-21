@@ -1,0 +1,971 @@
+/* ===================================
+   Custom Fonts
+   =================================== */
+@font-face {
+  font-family: "Balgend";
+  src: url("../fonts/balgend-regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Carme";
+  src: url("../fonts/carme-regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ===================================
+   CSS Custom Properties (Variables)
+   =================================== */
+:root {
+  /* Colors */
+  --color-primary: #3b82f6;
+  --color-primary-dark: #2563eb;
+  --color-accent: #10b981;
+
+  --color-text: #1f2937;
+  --color-text-light: #6b7280;
+  --color-background: #eeeeee;
+  --color-card-bg: #ffffff;
+  --color-border: #d1d5db;
+
+  /* Typography */
+  --font-primary: "Balgend", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, sans-serif;
+  --font-secondary: "Carme", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, sans-serif;
+  --font-size-base: 1rem;
+  --font-size-sm: 0.75rem;
+  --font-size-lg: 2rem;
+  --font-size-xl: 4rem;
+  --font-size-2xl: 8rem;
+  --font-size-3xl: 16rem;
+  --font-size-4xl: 52rem;
+
+  --font-weight-normal: 400;
+  --font-weight-bold: 700;
+
+  --line-height-base: 1.6;
+  --line-height-heading: 1.2;
+
+  /* Spacing */
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 1.5rem;
+  --spacing-lg: 2rem;
+  --spacing-xl: 3rem;
+  --spacing-2xl: 4rem;
+
+  /* Layout */
+  --container-max-width: 1920px;
+  --border-radius: 0.5rem;
+
+  /* Transitions */
+  --transition-base: 0.3s ease;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+/* ===================================
+   CSS Reset & Base Styles
+   =================================== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-normal);
+  line-height: var(--line-height-base);
+  color: var(--color-text);
+  background-color: var(--color-background);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+/* ===================================
+   Typography
+   =================================== */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-primary);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-heading);
+  margin-bottom: var(--spacing-sm);
+}
+
+h1 {
+  font-size: clamp(var(--font-size-xl), 25vw, var(--font-size-4xl));
+}
+h2 {
+  font-size: clamp(var(--font-size-2xl), 4vw, var(--font-size-3xl));
+}
+h3 {
+  font-size: var(--font-size-xl);
+}
+
+p {
+  margin-bottom: var(--spacing-sm);
+  font-family: var(--font-secondary);
+}
+
+/* ===================================
+   Layout
+   =================================== */
+.container {
+  width: 100%;
+  max-width: var(--container-max-width);
+  margin-inline: auto;
+  padding-inline: var(--spacing-sm);
+}
+
+/* ===================================
+   Hero Section
+   =================================== */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  text-align: center;
+  padding-block: var(--spacing-xs);
+}
+
+/* ===================================
+   Hero Content Section
+   =================================== */
+.hero-content {
+  padding-block: var(--spacing-2xl);
+  background-color: var(--color-background);
+}
+
+.cards-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-lg);
+  max-width: 1200px;
+  margin-inline: auto;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-card-bg);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  transition: transform var(--transition-base),
+    box-shadow var(--transition-base);
+  text-decoration: none;
+  color: var(--color-text);
+  padding: var(--spacing-lg);
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.card-subtitle {
+  font-family: var(--font-primary);
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-primary);
+  margin-bottom: var(--spacing-sm);
+  text-align: center;
+}
+
+.card-description {
+  font-family: var(--font-secondary);
+  font-size: var(--font-size-base);
+  color: var(--color-text-light);
+  line-height: var(--line-height-base);
+  margin-bottom: var(--spacing-md);
+  text-align: center;
+  flex-grow: 1;
+}
+
+.card-image {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-radius: var(--border-radius);
+}
+
+/* ===================================
+   Content Pages Layout (What to do?/see?)
+   =================================== */
+.page-header {
+  padding-top: var(--spacing-xl);
+  padding-bottom: var(--spacing-sm);
+  padding-inline: var(--spacing-lg);
+}
+
+.content-section {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-xl);
+  padding-inline: var(--spacing-lg);
+  padding-block-end: var(--spacing-2xl);
+}
+
+/* Left Side - Description & Image */
+.content-left {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+}
+
+.description-block {
+  background-color: var(--color-card-bg);
+  padding: var(--spacing-lg);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-sm);
+}
+
+.description-text {
+  font-family: var(--font-secondary);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
+  color: var(--color-text);
+  margin: 0;
+}
+
+.content-image {
+  width: 100%;
+  overflow: hidden;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-md);
+}
+
+.content-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+/* Right Side - Lists */
+.content-right {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.list-group {
+  background-color: var(--color-card-bg);
+  padding: var(--spacing-md);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-sm);
+}
+
+.list-title {
+  font-family: var(--font-primary);
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text);
+  margin-bottom: var(--spacing-sm);
+  letter-spacing: 0.05em;
+}
+
+.content-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.content-list li {
+  padding: var(--spacing-xs) 0;
+}
+
+.list-link {
+  font-family: var(--font-secondary);
+  font-size: var(--font-size-base);
+  color: var(--color-text-light);
+  text-decoration: none;
+  transition: color var(--transition-base), padding-left var(--transition-base);
+  display: inline-block;
+}
+
+.list-link:hover {
+  color: var(--color-primary);
+  padding-left: var(--spacing-xs);
+}
+
+/* ===================================
+   Info Content Section (What to Know)
+   =================================== */
+.info-content {
+  padding: var(--spacing-2xl) var(--spacing-lg);
+  max-width: 1200px;
+  margin-inline: auto;
+}
+
+.info-block {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-xl);
+  margin-bottom: var(--spacing-2xl);
+  padding-bottom: var(--spacing-2xl);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.info-block:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.info-text {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.info-text h3 {
+  font-family: var(--font-primary);
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text);
+  margin: 0;
+}
+
+.info-text p {
+  font-family: var(--font-secondary);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
+  color: var(--color-text);
+  margin: 0;
+}
+
+.info-images {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-md);
+}
+
+.info-image {
+  width: 100%;
+  height: auto;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-md);
+  object-fit: cover;
+}
+
+/* ===================================
+   IMAGE GALLERY COMPONENTS
+   =================================== */
+
+/* Base Gallery Styles */
+.gallery {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+  width: 100%;
+}
+
+.gallery-image {
+  width: 100%;
+  object-fit: cover;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-md);
+  display: block;
+  transition: transform var(--transition-base),
+    box-shadow var(--transition-base);
+}
+
+.gallery-image:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Variation 1: Horizontal + 3 Vertical (Current) */
+.gallery-h-3v .gallery-row-main {
+  width: 100%;
+}
+
+.gallery-h-3v .gallery-row-main .gallery-image {
+  height: 300px;
+}
+
+.gallery-h-3v .gallery-row-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--spacing-xs);
+}
+
+.gallery-h-3v .gallery-row-grid .gallery-image {
+  height: 250px;
+}
+
+/* Variation 2: 2 Vertical + Horizontal */
+.gallery-2v-h .gallery-row-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--spacing-xs);
+}
+
+.gallery-2v-h .gallery-row-grid .gallery-image {
+  height: 300px;
+}
+
+.gallery-2v-h .gallery-row-main {
+  width: 100%;
+}
+
+.gallery-2v-h .gallery-row-main .gallery-image {
+  height: 250px;
+}
+
+/* Variation 3: 3 Vertical Only */
+.gallery-3v {
+  flex-direction: row;
+  gap: var(--spacing-xs);
+}
+
+.gallery-3v .gallery-image {
+  width: 100%;
+  height: 350px;
+}
+
+/* Variation 4: Single Horizontal */
+.gallery-single .gallery-image {
+  width: 100%;
+  height: 400px;
+}
+
+/* Variation 5: 2 Horizontal Images */
+.gallery-2h .gallery-row-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-xs);
+}
+
+.gallery-2h .gallery-row-grid .gallery-image {
+  width: 100%;
+  height: 300px;
+}
+
+/* Variation 6: Vertical Left + 2 Horizontal Right */
+.gallery-v-2h {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: var(--spacing-xs);
+}
+
+.gallery-v-2h .gallery-col-vertical {
+  display: flex;
+  flex-direction: column;
+}
+
+.gallery-v-2h .gallery-col-vertical .gallery-image {
+  width: 100%;
+  height: 100%;
+  min-height: 400px;
+}
+
+.gallery-v-2h .gallery-col-horizontal {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.gallery-v-2h .gallery-col-horizontal .gallery-image {
+  width: 100%;
+  height: calc(50% - var(--spacing-xs) / 2);
+  min-height: 195px;
+}
+
+/* Variation 7: 2 Horizontal Left + Vertical Right */
+.gallery-2h-v {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: var(--spacing-xs);
+}
+
+.gallery-2h-v .gallery-col-horizontal {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.gallery-2h-v .gallery-col-horizontal .gallery-image {
+  width: 100%;
+  height: calc(50% - var(--spacing-xs) / 2);
+  min-height: 195px;
+}
+
+.gallery-2h-v .gallery-col-vertical {
+  display: flex;
+  flex-direction: column;
+}
+
+.gallery-2h-v .gallery-col-vertical .gallery-image {
+  width: 100%;
+  height: 100%;
+  min-height: 400px;
+}
+
+/* ===================================
+   TEXT BLOCK COMPONENTS
+   =================================== */
+
+/* Base Text Block */
+.text-block {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.text-block p {
+  font-family: var(--font-secondary);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
+  color: var(--color-text);
+  margin: 0;
+}
+
+/* Text Block with Title */
+.text-block-title {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.text-block-title h2 {
+  font-family: var(--font-primary);
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text);
+  margin: 0;
+  margin-bottom: var(--spacing-xs);
+}
+
+.text-block-title p {
+  font-family: var(--font-secondary);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
+  color: var(--color-text);
+  margin: 0;
+}
+
+/* Text Block with Subtitle */
+.text-block-subtitle {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.text-block-subtitle h3 {
+  font-family: var(--font-primary);
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text);
+  margin: 0;
+  margin-bottom: var(--spacing-xs);
+}
+
+.text-block-subtitle p {
+  font-family: var(--font-secondary);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
+  color: var(--color-text);
+  margin: 0;
+}
+
+/* Text Block with Title and Subtitle */
+.text-block-full {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.text-block-full h2 {
+  font-family: var(--font-primary);
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text);
+  margin: 0;
+}
+
+.text-block-full h3 {
+  font-family: var(--font-primary);
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-primary);
+  margin: 0;
+  margin-bottom: var(--spacing-xs);
+}
+
+.text-block-full p {
+  font-family: var(--font-secondary);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
+  color: var(--color-text);
+  margin: 0;
+}
+
+/* ===================================
+   PAGE LAYOUT COMPONENTS
+   =================================== */
+
+/* Split Layout (Left/Right) */
+.page-split {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-xl);
+  padding: var(--spacing-2xl) var(--spacing-lg);
+  max-width: 1400px;
+  margin-inline: auto;
+}
+
+.page-split-left,
+.page-split-right {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+}
+
+/* Single Column Layout (Full Width) */
+.page-single {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+  padding: var(--spacing-2xl) var(--spacing-lg);
+  max-width: 1200px;
+  margin-inline: auto;
+}
+
+/* Component Wrapper for consistent spacing */
+.component {
+  margin-bottom: var(--spacing-md);
+}
+
+.component:last-child {
+  margin-bottom: 0;
+}
+
+/* ===================================
+   Utility Classes
+   =================================== */
+.text-center {
+  text-align: center;
+}
+.text-light {
+  color: var(--color-text-light);
+}
+
+/* ===================================
+   Responsive Breakpoints
+   =================================== */
+
+/* Small phones (375px and up) */
+@media (min-width: 23.4375em) {
+  /* Layout */
+  .container {
+    padding-inline: var(--spacing-md);
+  }
+}
+
+/* Tablets (768px and up) */
+@media (min-width: 48em) {
+  /* CSS Variables */
+  :root {
+    --spacing-xl: 4rem;
+    --spacing-2xl: 6rem;
+  }
+
+  /* Hero Content Section */
+  .cards-container {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-xl);
+  }
+
+  .card-image {
+    height: 300px;
+  }
+
+  /* Info Content Section (What to Know) */
+  .info-images {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+
+  .info-block {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-2xl);
+  }
+
+  /* Image Gallery Components */
+
+  /* Gallery: Horizontal + 3 Vertical */
+  .gallery-h-3v .gallery-row-main .gallery-image {
+    height: 350px;
+  }
+
+  .gallery-h-3v .gallery-row-grid .gallery-image {
+    height: 280px;
+  }
+
+  /* Gallery: 2 Vertical + Horizontal */
+  .gallery-2v-h .gallery-row-grid .gallery-image {
+    height: 350px;
+  }
+
+  .gallery-2v-h .gallery-row-main .gallery-image {
+    height: 280px;
+  }
+
+  /* Gallery: 3 Vertical Images */
+  .gallery-3v .gallery-image {
+    height: 400px;
+  }
+
+  /* Gallery: 2 Horizontal Images */
+  .gallery-2h .gallery-row-grid .gallery-image {
+    height: 350px;
+  }
+
+  /* Gallery: Vertical Left + 2 Horizontal Right */
+  .gallery-v-2h .gallery-col-vertical .gallery-image {
+    min-height: 500px;
+  }
+
+  .gallery-v-2h .gallery-col-horizontal .gallery-image {
+    min-height: 245px;
+  }
+
+  /* Gallery: 2 Horizontal Left + Vertical Right */
+  .gallery-2h-v .gallery-col-horizontal .gallery-image {
+    min-height: 245px;
+  }
+
+  .gallery-2h-v .gallery-col-vertical .gallery-image {
+    min-height: 500px;
+  }
+
+  /* Gallery: Single Horizontal */
+  .gallery-single .gallery-image {
+    height: 450px;
+  }
+
+  /* Page Split Layout */
+  .page-split {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-2xl);
+  }
+}
+
+/* Laptops (1024px and up) */
+@media (min-width: 64em) {
+  /* Layout */
+  .container {
+    padding-inline: var(--spacing-lg);
+  }
+
+  /* Hero Content Section */
+  .card-image {
+    height: 350px;
+  }
+
+  /* Content Pages Layout (What to do?/see?) */
+  .content-section {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-2xl);
+  }
+
+  .page-header h2 {
+    font-size: 3rem;
+  }
+
+  .content-image img {
+    min-height: 400px;
+  }
+
+  /* Info Content Section (What to Know) */
+  .info-content {
+    padding: var(--spacing-2xl);
+  }
+
+  .info-block {
+    gap: 3rem;
+  }
+
+  /* Image Gallery Components */
+
+  /* Gallery: Horizontal + 3 Vertical */
+  .gallery-h-3v .gallery-row-main .gallery-image {
+    height: 400px;
+  }
+
+  .gallery-h-3v .gallery-row-grid .gallery-image {
+    height: 320px;
+  }
+
+  /* Gallery: 2 Vertical + Horizontal */
+  .gallery-2v-h .gallery-row-grid .gallery-image {
+    height: 400px;
+  }
+
+  .gallery-2v-h .gallery-row-main .gallery-image {
+    height: 320px;
+  }
+
+  /* Gallery: 3 Vertical Images */
+  .gallery-3v .gallery-image {
+    height: 450px;
+  }
+
+  /* Gallery: 2 Horizontal */
+  .gallery-2h .gallery-row-grid .gallery-image {
+    height: 400px;
+  }
+
+  /* Gallery: Vertical Left + 2 Horizontal Right */
+  .gallery-v-2h .gallery-col-vertical .gallery-image {
+    min-height: 600px;
+  }
+
+  .gallery-v-2h .gallery-col-horizontal .gallery-image {
+    min-height: 295px;
+  }
+
+  /* Gallery: 2 Horizontal Left + Vertical Right */
+  .gallery-2h-v .gallery-col-horizontal .gallery-image {
+    min-height: 295px;
+  }
+
+  .gallery-2h-v .gallery-col-vertical .gallery-image {
+    min-height: 600px;
+  }
+
+  /* Gallery: Single Horizontal */
+  .gallery-single .gallery-image {
+    height: 500px;
+  }
+}
+
+/* Desktops (1280px and up) */
+@media (min-width: 80em) {
+  /* CSS Variables */
+  :root {
+    --font-size-base: 1.125rem;
+  }
+
+  /* Content Pages Layout (What to do?/see?) */
+  .content-section {
+    max-width: 1400px;
+    margin-inline: auto;
+  }
+
+  /* Image Gallery Components */
+
+  /* Gallery: Horizontal + 3 Vertical */
+  .gallery-h-3v .gallery-row-main .gallery-image {
+    height: 450px;
+  }
+
+  .gallery-h-3v .gallery-row-grid .gallery-image {
+    height: 350px;
+  }
+
+  /* Gallery: 2 Vertical + Horizontal */
+  .gallery-2v-h .gallery-row-grid .gallery-image {
+    height: 450px;
+  }
+
+  .gallery-2v-h .gallery-row-main .gallery-image {
+    height: 350px;
+  }
+
+  /* Gallery: 3 Vertical Images */
+  .gallery-3v .gallery-image {
+    height: 500px;
+  }
+
+  /* Gallery: 2 Horizontal */
+  .gallery-2h .gallery-row-grid .gallery-image {
+    height: 450px;
+  }
+
+  /* Gallery: Vertical Left + 2 Horizontal Right */
+  .gallery-v-2h .gallery-col-vertical .gallery-image {
+    min-height: 700px;
+  }
+
+  .gallery-v-2h .gallery-col-horizontal .gallery-image {
+    min-height: 345px;
+  }
+
+  /* Gallery: 2 Horizontal Left + Vertical Right */
+  .gallery-2h-v .gallery-col-horizontal .gallery-image {
+    min-height: 345px;
+  }
+
+  .gallery-2h-v .gallery-col-vertical .gallery-image {
+    min-height: 700px;
+  }
+
+  /* Gallery: Single Horizontal */
+  .gallery-single .gallery-image {
+    height: 550px;
+  }
+}
+
+/* Large desktops (1536px and up) */
+@media (min-width: 96em) {
+  /* Layout */
+  .container {
+    padding-inline: var(--spacing-xl);
+  }
+}
