@@ -1175,6 +1175,10 @@ p {
 }
 
 /* Text Utilities */
+.text-font-secondary {
+  font-family: var(--font-secondary);
+}
+
 .text-muted {
   color: var(--color-text-light);
 }
