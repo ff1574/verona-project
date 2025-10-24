@@ -111,3 +111,83 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 });
+
+// ===================================
+// Mobile Navigation Toggle & Scroll Detection
+// ===================================
+
+document.addEventListener("DOMContentLoaded", function () {
+  const navbar = document.querySelector(".navbar");
+  const navbarToggle = document.querySelector(".navbar-toggle");
+  const navbarMenu = document.querySelector(".navbar-menu");
+
+  // Create backdrop element
+  const backdrop = document.createElement("div");
+  backdrop.className = "navbar-backdrop";
+  document.body.appendChild(backdrop);
+
+  let lastScrollY = window.scrollY;
+  let scrollThreshold = 100; // Show navbar after scrolling 100px
+
+  // Scroll detection
+  function handleScroll() {
+    const currentScrollY = window.scrollY;
+    
+    if (currentScrollY > scrollThreshold) {
+      navbar.classList.add("navbar-visible");
+    } else {
+      navbar.classList.remove("navbar-visible");
+      // Close mobile menu if open when navbar hides
+      if (navbarMenu.classList.contains("active")) {
+        closeMenu();
+      }
+    }
+
+    lastScrollY = currentScrollY;
+  }
+
+  // Toggle menu
+  function toggleMenu() {
+    navbarToggle.classList.toggle("active");
+    navbarMenu.classList.toggle("active");
+    backdrop.classList.toggle("active");
+
+    // Prevent body scroll when menu is open
+    if (navbarMenu.classList.contains("active")) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+  }
+
+  // Close menu
+  function closeMenu() {
+    navbarToggle.classList.remove("active");
+    navbarMenu.classList.remove("active");
+    backdrop.classList.remove("active");
+    document.body.style.overflow = "";
+  }
+
+  // Event listeners
+  window.addEventListener("scroll", handleScroll);
+  navbarToggle.addEventListener("click", toggleMenu);
+  backdrop.addEventListener("click", closeMenu);
+
+  // Close menu when clicking a link
+  const navbarLinks = document.querySelectorAll(".navbar-link");
+  navbarLinks.forEach((link) => {
+    link.addEventListener("click", closeMenu);
+  });
+
+  // Set active link based on current page
+  const currentPath = window.location.pathname;
+  navbarLinks.forEach((link) => {
+    const linkHref = link.getAttribute("href");
+    if (linkHref && currentPath.includes(linkHref)) {
+      link.classList.add("active");
+    }
+  });
+
+  // Initial check in case page is loaded scrolled down
+  handleScroll();
+});

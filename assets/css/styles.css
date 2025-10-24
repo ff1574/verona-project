@@ -714,43 +714,6 @@ p {
   transform: translateY(-50%) translateX(5px);
 }
 
-/* Mobile adjustments */
-@media (max-width: 48em) {
-  .lightbox-close {
-    top: 10px;
-    right: 10px;
-    width: 40px;
-    height: 40px;
-    font-size: 1.5rem;
-  }
-
-  .lightbox-prev,
-  .lightbox-next {
-    width: 40px;
-    height: 40px;
-    font-size: 2rem;
-  }
-
-  .lightbox-prev {
-    left: 10px;
-    padding-right: 2px;
-  }
-
-  .lightbox-next {
-    right: 10px;
-    padding-left: 2px;
-  }
-
-  .lightbox-image {
-    max-height: 80vh;
-  }
-
-  .lightbox-caption {
-    font-size: var(--font-size-sm);
-    margin-top: var(--spacing-sm);
-  }
-}
-
 /* Gallery image cursor hint */
 .gallery-image {
   cursor: pointer;
@@ -773,6 +736,191 @@ p {
 }
 
 .gallery-image:hover::after {
+  opacity: 1;
+}
+
+/* ===================================
+   Navigation Bar Component
+   =================================== */
+
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: var(--color-card-bg);
+  box-shadow: var(--shadow-md);
+  z-index: 1000;
+  transform: translateY(-100%);
+  transition: transform 0.4s ease, box-shadow var(--transition-base);
+}
+
+.navbar.navbar-visible {
+  transform: translateY(0);
+}
+
+.navbar-container {
+  max-width: var(--container-max-width);
+  margin-inline: auto;
+  padding: var(--spacing-sm) var(--spacing-lg);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Brand/Logo */
+.navbar-brand {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  transition: transform var(--transition-base);
+}
+
+.navbar-brand:hover {
+  transform: translateY(-2px);
+}
+
+.brand-main {
+  font-family: var(--font-primary);
+  font-size: 1.5rem;
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text);
+  line-height: 1;
+}
+
+.brand-sub {
+  font-family: var(--font-secondary);
+  font-size: 0.875rem;
+  color: var(--color-text-light);
+  line-height: 1;
+  margin-top: 2px;
+}
+
+/* Mobile Toggle Button */
+.navbar-toggle {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: var(--spacing-xs);
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+.navbar-toggle-icon {
+  width: 25px;
+  height: 3px;
+  background-color: var(--color-text);
+  border-radius: 2px;
+  transition: all var(--transition-base);
+}
+
+.navbar-toggle:hover .navbar-toggle-icon {
+  background-color: var(--color-primary);
+}
+
+/* Menu Toggle Animation */
+.navbar-toggle.active .navbar-toggle-icon:nth-child(1) {
+  transform: rotate(45deg) translate(7px, 7px);
+}
+
+.navbar-toggle.active .navbar-toggle-icon:nth-child(2) {
+  opacity: 0;
+}
+
+.navbar-toggle.active .navbar-toggle-icon:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -7px);
+}
+
+/* Navigation Menu */
+.navbar-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 280px;
+  height: 100vh;
+  background-color: var(--color-card-bg);
+  box-shadow: -4px 0 10px rgba(0, 0, 0, 0.1);
+  padding-top: 80px;
+  transition: right var(--transition-base);
+  z-index: 999;
+}
+
+.navbar-menu.active {
+  right: 0;
+}
+
+.navbar-item {
+  border-bottom: 1px solid var(--color-border);
+}
+
+.navbar-link {
+  display: block;
+  padding: var(--spacing-md) var(--spacing-lg);
+  font-family: var(--font-secondary);
+  font-size: var(--font-size-base);
+  color: var(--color-text);
+  text-decoration: none;
+  transition: background-color var(--transition-base),
+    color var(--transition-base), padding-left var(--transition-base);
+  position: relative;
+}
+
+.navbar-link:hover {
+  background-color: var(--color-background);
+  color: var(--color-primary);
+  padding-left: calc(var(--spacing-lg) + 8px);
+}
+
+.navbar-link::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 4px;
+  background-color: var(--color-primary);
+  transform: scaleY(0);
+  transition: transform var(--transition-base);
+}
+
+.navbar-link:hover::before {
+  transform: scaleY(1);
+}
+
+/* Active Link State */
+.navbar-link.active {
+  color: var(--color-primary);
+  font-weight: var(--font-weight-bold);
+  background-color: var(--color-background);
+}
+
+.navbar-link.active::before {
+  transform: scaleY(1);
+}
+
+/* Backdrop for mobile menu */
+.navbar-backdrop {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 998;
+  opacity: 0;
+  transition: opacity var(--transition-base);
+}
+
+.navbar-backdrop.active {
+  display: block;
   opacity: 1;
 }
 
@@ -1146,6 +1294,83 @@ p {
     grid-template-columns: 1fr 1fr;
     gap: var(--spacing-2xl);
   }
+
+  /* Lightbox */
+  .lightbox-close {
+    top: 10px;
+    right: 10px;
+    width: 40px;
+    height: 40px;
+    font-size: 1.5rem;
+  }
+
+  .lightbox-prev,
+  .lightbox-next {
+    width: 40px;
+    height: 40px;
+    font-size: 2rem;
+  }
+
+  .lightbox-prev {
+    left: 10px;
+    padding-right: 2px;
+  }
+
+  .lightbox-next {
+    right: 10px;
+    padding-left: 2px;
+  }
+
+  .lightbox-image {
+    max-height: 80vh;
+  }
+
+  .lightbox-caption {
+    font-size: var(--font-size-sm);
+    margin-top: var(--spacing-sm);
+  }
+
+  /* Navigation Bar Component */
+  .navbar-toggle {
+    display: none;
+  }
+
+  .navbar-menu {
+    position: static;
+    flex-direction: row;
+    width: auto;
+    height: auto;
+    padding-top: 0;
+    background-color: transparent;
+    box-shadow: none;
+    gap: var(--spacing-sm);
+  }
+
+  .navbar-item {
+    border-bottom: none;
+  }
+
+  .navbar-link {
+    padding: var(--spacing-xs) var(--spacing-md);
+    border-radius: var(--border-radius);
+  }
+
+  .navbar-link:hover {
+    padding-left: var(--spacing-md);
+    background-color: var(--color-background);
+  }
+
+  .navbar-link::before {
+    display: none;
+  }
+
+  .brand-main {
+    font-size: 1.75rem;
+  }
+
+  .brand-sub {
+    font-size: 1rem;
+  }
 }
 
 /* Laptops (1024px and up) */
@@ -1238,6 +1463,15 @@ p {
   /* Gallery: Single Horizontal */
   .gallery-single .gallery-image {
     height: 500px;
+  }
+
+  /* Navigation Bar Component */
+  .navbar-container {
+    padding: var(--spacing-md) var(--spacing-xl);
+  }
+
+  .navbar-menu {
+    gap: var(--spacing-md);
   }
 }
 
