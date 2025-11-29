@@ -30,7 +30,8 @@ verona-project/
 │   ├── css/
 │   ├── js/
 │   └── fonts/
-└── index.html              # Homepage (no navbar, remains HTML)
+├── index.html              # Homepage (HTML version)
+└── index.php               # Homepage (PHP version with links to PHP pages)
 ```
 
 ## How the Navbar Component Works
@@ -88,7 +89,7 @@ PHP has a built-in development server that's perfect for local testing.
    ```
 
 4. **Open your browser** and visit:
-   - Homepage: `http://localhost:8000/index.html`
+   - Homepage: `http://localhost:8000/index.php`
    - What to Do: `http://localhost:8000/pages/what-to-do.php`
    - What to See: `http://localhost:8000/pages/what-to-see.php`
    - What to Know: `http://localhost:8000/pages/what-to-know.php`
@@ -107,7 +108,7 @@ If you prefer a full Apache + PHP stack:
 3. Start the Apache server through the control panel
 
 4. Open your browser and visit:
-   - `http://localhost/verona-project/index.html`
+   - `http://localhost/verona-project/index.php`
 
 ### Option 3: Visual Studio Code with PHP Server Extension
 
