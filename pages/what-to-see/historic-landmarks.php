@@ -218,6 +218,9 @@
             </div>
         </div>
     </main>
+
+    <?php include __DIR__ . '/../../components/footer.php'; ?>
+
     <script src="../../assets/js/script.js"></script>
 </body>
 
