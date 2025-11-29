@@ -20,7 +20,7 @@
     <section class="content-section">
       <div class="content-left">
 
-        <a href="pages/what-to-see/historic-landmarks.html" class="card">
+        <a href="what-to-see/historic-landmarks.php" class="card">
           <h4 class="text-primary"> HISTORIC LANDMARKS</h4>
           <ul class="content-list">
             <li class="text-font-secondary">Arena di Verona</li>
@@ -32,7 +32,7 @@
           </ul>
         </a>
 
-        <a href="pages/what-to-see/museums-art-collections.html" class="card">
+        <a href="what-to-see/museums-art-collections.php" class="card">
           <h4 class="text-primary">MUSEUMS & GALLERIES</h4>
           <ul class="content-list">
             <li class="text-font-secondary">Palazzo Maffei Casa Museo</li>
@@ -41,7 +41,7 @@
           </ul>
         </a>
 
-        <a href="pages/what-to-see/religious-heritage.html" class="card">
+        <a href="what-to-see/religious-heritage.php" class="card">
           <h4 class="text-primary">RELIGIOUS HERITAGE</h4>
           <ul class="content-list">
             <li class="text-font-secondary">Basilica di San Zeno Maggiore</li>

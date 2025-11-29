@@ -132,7 +132,7 @@
                     </p>
                     <p>
                         <br> For more about the church itself, visit this handy <a
-                            href="#https://www.visitverona.it/it/luoghi/santuario-nostra-signora-di-lourdes"
+                            href="https://www.visitverona.it/it/luoghi/santuario-nostra-signora-di-lourdes"
                             class="list-link">guide</a> I liked to use.
                     </p>
                     <p>

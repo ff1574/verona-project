@@ -20,7 +20,7 @@
 
     <section class="content-section">
       <div class="content-left">
-        <a href="pages/what-to-do/walks-and-outdoors.html" class="card">
+        <a href="what-to-do/walks-and-outdoors.php" class="card">
           <h4 class="text-primary">WALKS & OUTDOORS</h4>
           <ul class="content-list">
             <li class="text-font-secondary">Castel san Pietro (Hill Fortress)</li>
@@ -29,7 +29,7 @@
           </ul>
         </a>
 
-        <a href="pages/what-to-do/cultural-experiences.html" class="card">
+        <a href="what-to-do/cultural-experiences.php" class="card">
           <h4 class="text-primary">CULTURAL EXPERIENCES</h4>
           <ul class="content-list">
             <li class="text-font-secondary">Summer Opera Festival</li>
@@ -40,7 +40,7 @@
           </ul>
         </a>
 
-        <a href="pages/what-to-do/one-day-trips.html" class="card">
+        <a href="what-to-do/one-day-trips.php" class="card">
           <h4 class="text-primary">ONE DAY TRIPS</h4>
           <ul class="content-list">
             <li class="text-font-secondary">Lake Garda</li>
