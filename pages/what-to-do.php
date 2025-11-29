@@ -1,0 +1,66 @@
+<?php $basePath = '..'; ?>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Discover what to do in Verona" />
+  <title>What to do? - Nora in Verona</title>
+  <link rel="stylesheet" href="../assets/css/styles.css" />
+</head>
+
+<body>
+  <?php include __DIR__ . '/../components/navbar.php'; ?>
+
+  <main class="container">
+    <div class="page-header">
+      <h2>What to do?</h2>
+    </div>
+
+    <section class="content-section">
+      <div class="content-left">
+        <a href="pages/what-to-do/walks-and-outdoors.html" class="card">
+          <h4 class="text-primary">WALKS & OUTDOORS</h4>
+          <ul class="content-list">
+            <li class="text-font-secondary">Castel san Pietro (Hill Fortress)</li>
+            <li class="text-font-secondary">Adige River Bridges</li>
+            <li class="text-font-secondary">The Walk to the Santuario</li>
+          </ul>
+        </a>
+
+        <a href="pages/what-to-do/cultural-experiences.html" class="card">
+          <h4 class="text-primary">CULTURAL EXPERIENCES</h4>
+          <ul class="content-list">
+            <li class="text-font-secondary">Summer Opera Festival</li>
+            <li class="text-font-secondary">Vinitaly</li>
+            <li class="text-font-secondary">The Walk to the Santuario</li>
+            <li class="text-font-secondary">Casa di Giulietta</li>
+            <li class="text-font-secondary">Tocati International festival of Games</li>
+          </ul>
+        </a>
+
+        <a href="pages/what-to-do/one-day-trips.html" class="card">
+          <h4 class="text-primary">ONE DAY TRIPS</h4>
+          <ul class="content-list">
+            <li class="text-font-secondary">Lake Garda</li>
+            <li class="text-font-secondary">Malcesine (Monte Baldo)</li>
+            <li class="text-font-secondary">Padova</li>
+            <li class="text-font-secondary">Gardaland</li>
+          </ul>
+        </a>
+      </div>
+
+      <div class="content-right">
+
+        <div class="content-image">
+          <img src="../assets/images/general/see.JPG" alt="Activities in Verona" />
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="../assets/js/script.js"></script>
+</body>
+
+</html>
