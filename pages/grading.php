@@ -151,7 +151,7 @@
                 <h3 class="text-primary">9. References</h3>
                 <p>
                     All external images and information sources are properly documented on the dedicated
-                    <a href="sources.html" class="text-primary">Sources</a> page. The majority of photographs are
+                    <a href="sources.php" class="text-primary">Sources</a> page. The majority of photographs are
                     original images taken during personal travel to Verona. Where external images are used (such as for
                     locations not personally visited, like the Roman Theatre), sources include complete attribution with
                     links. Text content draws from personal experience, supplemented by official tourism websites,
@@ -195,7 +195,7 @@
 
         <div class="quote-block">
             <p>
-                <a href="../index.html" class="text-primary">Back to Home</a>
+                <a href="../index.php" class="text-primary">Back to Home</a>
             </p>
         </div>
     </main>

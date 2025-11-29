@@ -57,6 +57,11 @@
         <a href="pages/grading.php" class="text-primary">Grading</a>
       </p>
     </div>
+    <div class="quote-block">
+      <p>
+        <a href="pages/comments.php" class="text-primary">Comments</a>
+      </p>
+    </div>
   </main>
 
   <?php include __DIR__ . '/components/footer.php'; ?>

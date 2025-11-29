@@ -19,7 +19,7 @@ if (!isset($basePath)) {
 ?>
 <nav class="navbar">
     <div class="navbar-container">
-        <a href="<?php echo $basePath; ?>/index.html" class="navbar-brand">
+        <a href="<?php echo $basePath; ?>/index.php" class="navbar-brand">
             <span class="brand-main">Nora</span>
             <span class="brand-sub">in Verona</span>
         </a>
@@ -32,7 +32,7 @@ if (!isset($basePath)) {
 
         <ul class="navbar-menu">
             <li class="navbar-item">
-                <a href="<?php echo $basePath; ?>/index.html" class="navbar-link">Home</a>
+                <a href="<?php echo $basePath; ?>/index.php" class="navbar-link">Home</a>
             </li>
             <li class="navbar-item">
                 <a href="<?php echo $basePath; ?>/pages/what-to-do.php" class="navbar-link">What to do?</a>
