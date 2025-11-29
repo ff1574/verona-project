@@ -118,13 +118,6 @@ document.addEventListener("DOMContentLoaded", function () {
     submitBtn.textContent = "Submitting...";
   });
 
-  // Sanitize input to prevent XSS (additional client-side protection)
-  function sanitizeInput(str) {
-    const div = document.createElement("div");
-    div.textContent = str;
-    return div.innerHTML;
-  }
-
   // Clear form after successful submission (if page doesn't reload)
   if (document.querySelector(".form-success")) {
     form.reset();

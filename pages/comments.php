@@ -1,11 +1,8 @@
 <?php
 $basePath = '..';
 
-// Database configuration
-$db_host = 'localhost';
-$db_user = 'root';
-$db_pass = '';
-$db_name = 'verona_comments';
+// Include database configuration
+require_once __DIR__ . '/../config/database.php';
 
 $success_message = '';
 $error_message = '';
@@ -14,8 +11,8 @@ $db_available = false;
 
 // Try to create database connection
 try {
-    mysqli_report(MYSQLI_REPORT_OFF); // Disable mysqli exception reporting
-    $conn = new mysqli($db_host, $db_user, $db_pass);
+    mysqli_report(MYSQLI_REPORT_OFF); // Disable mysqli exception reporting for graceful error handling
+    $conn = new mysqli(DB_HOST, DB_USER, DB_PASS);
     
     // Check connection
     if ($conn->connect_error) {
@@ -23,8 +20,8 @@ try {
     } else {
         $db_available = true;
         // Create database if it doesn't exist
-        $conn->query("CREATE DATABASE IF NOT EXISTS $db_name");
-        $conn->select_db($db_name);
+        $conn->query("CREATE DATABASE IF NOT EXISTS " . DB_NAME);
+        $conn->select_db(DB_NAME);
     
     // Create comments table if it doesn't exist
     $create_table = "CREATE TABLE IF NOT EXISTS comments (
@@ -61,11 +58,8 @@ try {
         }
         
         if (empty($errors)) {
-            // Sanitize input for HTML output (XSS prevention)
-            $name = htmlspecialchars($name, ENT_QUOTES, 'UTF-8');
-            $comment = htmlspecialchars($comment, ENT_QUOTES, 'UTF-8');
-            
             // Use prepared statement to prevent SQL injection
+            // Store raw data in database, sanitize on output only
             $stmt = $conn->prepare("INSERT INTO comments (name, comment) VALUES (?, ?)");
             $stmt->bind_param("ss", $name, $comment);
             
