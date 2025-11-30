@@ -30,37 +30,24 @@
         <div class="page-split">
             <!-- Left Side -->
             <div class="page-split-left">
-                <!-- Text Block with Title -->
-                <div id="opera-festival" class="component text-block-title">
-                    <h2>Summer Opera Festival <span class="badge">Visited</span></h2>
-                    <p>
-                        The Summer Opera Festival takes place inside the Arena di Verona and is one of the city’s most
-                        famous annual events. When I visited, I went to see Carmen. It’s a huge production, with over a
-                        hundred people on stage at all times, and even animals brought in. The experience feels larger
-                        than life, though not exactly intimate. There are no microphones, so the sound relies entirely
-                        on the arena’s ancient acoustics.
-                    </p>
-                    <p>
-                        During the festival, behind the arena they keep the decorations and parts needed to set up the
-                        scenography. It's really cool to look up close and see how huge they really are.
-                    </p>
-                    <p>
-                        I went with my mom, and although we loved it, we only made it through the first act before the
-                        hard seats won. Still, even from the steps, watching the stage light up in the night air was
-                        unforgettable.
-                    </p>
-                </div>
+                <?php
+                $textBlock = [
+                    'id' => 'opera-festival',
+                    'title' => 'Summer Opera Festival',
+                    'badges' => [['type' => 'badge', 'text' => 'Visited']],
+                    'content' => '<p>The Summer Opera Festival takes place inside the Arena di Verona and is one of the city\'s most famous annual events. When I visited, I went to see Carmen. It\'s a huge production, with over a hundred people on stage at all times, and even animals brought in. The experience feels larger than life, though not exactly intimate. There are no microphones, so the sound relies entirely on the arena\'s ancient acoustics.</p><p>During the festival, behind the arena they keep the decorations and parts needed to set up the scenography. It\'s really cool to look up close and see how huge they really are.</p><p>I went with my mom, and although we loved it, we only made it through the first act before the hard seats won. Still, even from the steps, watching the stage light up in the night air was unforgettable.</p>'
+                ];
+                include __DIR__ . '/../../components/text-block-title.php';
+                ?>
 
-                <!-- Gallery: Single Horizontal -->
-                <div class="component gallery gallery-single">
-                    <img src="../../assets/images/architecture/arena/scenography-grouped.png"
-                        alt="Me and Verona in the Background" class="gallery-image" />
-                </div>
+                <?php
+                $gallery = ['src' => '../../assets/images/architecture/arena/scenography-grouped.png', 'alt' => 'Me and Verona in the Background'];
+                include __DIR__ . '/../../components/gallery-single.php';
+                ?>
             </div>
 
             <!-- Right Side -->
             <div class="page-split-right">
-
                 <div class="content-box">
                     <h4>CULTURE FREAKS</h4>
                     <p>
@@ -71,47 +58,37 @@
                     </p>
                 </div>
 
-
-                <!-- Gallery: 2 Horizontal -->
-                <div class="component gallery gallery-2h">
-                    <div class="gallery-row-grid">
-                        <img src="../../assets/images/architecture/arena/arena-night.JPG" alt="Arena at Night"
-                            class="gallery-image" />
-                        <img src="../../assets/images/architecture/arena/arena-opera-audience.JPG"
-                            alt="The Audience at the Performance of Opera Carmen" class="gallery-image" />
-                    </div>
-                </div>
+                <?php
+                $gallery = [
+                    'images' => [
+                        ['src' => '../../assets/images/architecture/arena/arena-night.JPG', 'alt' => 'Arena at Night'],
+                        ['src' => '../../assets/images/architecture/arena/arena-opera-audience.JPG', 'alt' => 'The Audience at the Performance of Opera Carmen']
+                    ]
+                ];
+                include __DIR__ . '/../../components/gallery-2h.php';
+                ?>
             </div>
         </div>
 
         <div class="page-split">
             <!-- Left Side -->
-            <div id="vinitalyr" class="page-split-left">
-                <!-- Text Block with Title -->
-                <div class="component text-block-title">
-                    <h2>Vinitaly <span class="badge-outline">not Visited</span></h2>
-                    <p>
-                        I wasn’t in Verona during Vinitaly, but one day soon I definitely will be. Sadly it just
-                        wasn’t a priority since I’m the only one in my family who actually likes wine.
-                    </p>
-                    <p>
-                        Vinitaly is Verona’s biggest wine festival and one of the most famous in the world. It takes
-                        place every April and turns the whole city into a celebration of Italian wine, food, and
-                        culture. During the main event and Vinitaly and the City, you can taste wine everywhere — from
-                        historic squares to hidden courtyards and even rooftops. It’s not just for wine experts either;
-                        it’s a fun way to experience the city in a completely different way.
-                    </p>
-                </div>
+            <div id="vinitaly" class="page-split-left">
+                <?php
+                $textBlock = [
+                    'title' => 'Vinitaly',
+                    'badges' => [['type' => 'badge-outline', 'text' => 'not Visited']],
+                    'content' => '<p>I wasn\'t in Verona during Vinitaly, but one day soon I definitely will be. Sadly it just wasn\'t a priority since I\'m the only one in my family who actually likes wine.</p><p>Vinitaly is Verona\'s biggest wine festival and one of the most famous in the world. It takes place every April and turns the whole city into a celebration of Italian wine, food, and culture. During the main event and Vinitaly and the City, you can taste wine everywhere — from historic squares to hidden courtyards and even rooftops. It\'s not just for wine experts either; it\'s a fun way to experience the city in a completely different way.</p>'
+                ];
+                include __DIR__ . '/../../components/text-block-title.php';
+                ?>
 
-                <!-- Gallery: Single Horizontal -->
-                <div class="component gallery gallery-single">
-                    <img src="../../assets/images/outside-sources/vinitaly-web.png"
-                        alt="Me at the Gate on the Start of the Pietra Bridge" class="gallery-image" />
-                </div>
+                <?php
+                $gallery = ['src' => '../../assets/images/outside-sources/vinitaly-web.png', 'alt' => 'Me at the Gate on the Start of the Pietra Bridge'];
+                include __DIR__ . '/../../components/gallery-single.php';
+                ?>
             </div>
             <!-- Right Side -->
             <div class="page-split-right">
-
                 <div class="content-box">
                     <h4>WINE LOVERS</h4>
                     <p>
@@ -121,77 +98,63 @@
                         start planning.
                     </p>
                 </div>
-                <!-- Gallery: Single Horizontal -->
-                <div class="component gallery gallery-single">
-                    <img src="../../assets/images/outside-sources/vinitaly-photo.jpg"
-                        alt="Cool Photo my Mom took of me on the Scaligero Bridge" class="gallery-image" />
-                </div>
+
+                <?php
+                $gallery = ['src' => '../../assets/images/outside-sources/vinitaly-photo.jpg', 'alt' => 'Cool Photo my Mom took of me on the Scaligero Bridge'];
+                include __DIR__ . '/../../components/gallery-single.php';
+                ?>
             </div>
         </div>
-        <div class="page-single">
-            <!-- Text Block with Title -->
-            <div class="component text-block-title">
-                <h2>Casa di Giulietta <span class="badge">Visited</span></h2>
 
-                <p>
-                    Juliet’s House, or Casa di Giulietta, is one of those places you just have to see in Verona, even if
-                    you know it’s not real. This is the house where Juliet supposedly lived, complete with the famous
-                    balcony where Romeo declared his love. Of course, it’s all inspired by Shakespeare’s Romeo and
-                    Juliet (nothing here is historically accurate) but if you’re willing to pretend a bit, and lean into
-                    the story, it’s actually a fun and charming experience.ƒ
-                </p>
-                <p>
-                    You can visit the courtyard for free and see the bronze statue of Juliet. If you want to go inside,
-                    you’ll need a ticket to access the small museum and climb up to the balcony yourself. There’s also a
-                    souvenir shop that’s surprisingly good - I found a few really nice things there, so definitely check
-                    it out.
-                </p>
-            </div>
+        <div class="page-single">
+            <?php
+            $textBlock = [
+                'title' => 'Casa di Giulietta',
+                'badges' => [['type' => 'badge', 'text' => 'Visited']],
+                'content' => '<p>Juliet\'s House, or Casa di Giulietta, is one of those places you just have to see in Verona, even if you know it\'s not real. This is the house where Juliet supposedly lived, complete with the famous balcony where Romeo declared his love. Of course, it\'s all inspired by Shakespeare\'s Romeo and Juliet (nothing here is historically accurate) but if you\'re willing to pretend a bit, and lean into the story, it\'s actually a fun and charming experience.ƒ</p><p>You can visit the courtyard for free and see the bronze statue of Juliet. If you want to go inside, you\'ll need a ticket to access the small museum and climb up to the balcony yourself. There\'s also a souvenir shop that\'s surprisingly good - I found a few really nice things there, so definitely check it out.</p>'
+            ];
+            include __DIR__ . '/../../components/text-block-title.php';
+            ?>
+
             <div class="content-box">
                 <h4>ROMANTIC SOULS</h4>
                 <p>
-                    It’s touristy, yes, but in a wholesome way. It’s the kind of spot where you can suspend disbelief
+                    It's touristy, yes, but in a wholesome way. It's the kind of spot where you can suspend disbelief
                     for a moment and just enjoy the romance and storytelling that made Verona famous. Whoever turned
-                    Shakespeare’s play into an attraction like this honestly deserves credit for good marketing.
+                    Shakespeare's play into an attraction like this honestly deserves credit for good marketing.
                     🎟️ More info, opening hours, and tickets: <a href="https://casa-di-giulietta.it/"
                         class="list-link">Casa di Giulietta –
                         Official Site</a>.
                 </p>
             </div>
 
-            <!-- Gallery: Horizontal + 3 Vertical -->
-            <div class="component gallery gallery-h-3v">
-                <div class="gallery-row-main">
-                    <img src="../../assets/images/museums/julia/julia-museum.JPG" alt="The Museum"
-                        class="gallery-image" />
-                </div>
-                <div class="gallery-row-grid">
-                    <img src="../../assets/images/museums/julia/juila-entrance.JPG"
-                        alt="A Look through the Entrance to the Courtyard" class="gallery-image" />
-                    <img src="../../assets/images/museums/julia/julia-me.JPG"
-                        alt="Yes, it’s tradition to touch her right breast for good luck, it's not just me"
-                        class="gallery-image" />
-                    <img src="../../assets/images/museums/julia/julia-courtyard.JPG" alt="Courtyard"
-                        class="gallery-image" />
-                </div>
-            </div>
+            <?php
+            $gallery = [
+                'main' => ['src' => '../../assets/images/museums/julia/julia-museum.JPG', 'alt' => 'The Museum'],
+                'grid' => [
+                    ['src' => '../../assets/images/museums/julia/juila-entrance.JPG', 'alt' => 'A Look through the Entrance to the Courtyard'],
+                    ['src' => '../../assets/images/museums/julia/julia-me.JPG', 'alt' => "Yes, it's tradition to touch her right breast for good luck, it's not just me"],
+                    ['src' => '../../assets/images/museums/julia/julia-courtyard.JPG', 'alt' => 'Courtyard']
+                ]
+            ];
+            include __DIR__ . '/../../components/gallery-h-3v.php';
+            ?>
         </div>
 
         <div class="page-split">
             <!-- Left Side -->
             <div id="tocati" class="page-split-left">
-                <!-- Text Block with Title -->
                 <div class="component text-block-title">
                     <div class="content-box">
                         <h2>Tocati International festival of Games <span class="badge-outline">not Visited</span></h2>
                         <p>
-                            I didn’t know this existed until I started researching Verona, but honestly — this sounds
-                            absolutely amazing and I’m definitely planning to go next time!
-                            Tocatì is Verona’s annual festival celebrating old and traditional street games. It started
+                            I didn't know this existed until I started researching Verona, but honestly — this sounds
+                            absolutely amazing and I'm definitely planning to go next time!
+                            Tocatì is Verona's annual festival celebrating old and traditional street games. It started
                             in
                             2003 and has grown into an international event that turns the streets and squares into a
                             huge
-                            play zone for a weekend in September. Everything is free to participate in, and it’s
+                            play zone for a weekend in September. Everything is free to participate in, and it's
                             designed
                             for all ages — families, kids, groups of friends, and even tourists who just want to join
                             the
@@ -200,38 +163,25 @@
                     </div>
                 </div>
 
-                <!-- Gallery: Single Horizontal -->
-                <div class="component gallery gallery-single">
-                    <img src="../../assets/images/outside-sources/tocati-porta-nuova.jpg" alt="Branding of the Games"
-                        class="gallery-image" />
-                </div>
+                <?php
+                $gallery = ['src' => '../../assets/images/outside-sources/tocati-porta-nuova.jpg', 'alt' => 'Branding of the Games'];
+                include __DIR__ . '/../../components/gallery-single.php';
+                ?>
             </div>
 
             <!-- Right Side -->
             <div class="page-split-right">
-                <!-- Text Block (no title) -->
-                <div class="component text-block">
-                    <p>
-                        The festival brings together traditional games from Italy and guest countries. Past editions
-                        have featured games from New Zealand, Scotland, and Mexico, all played right on the streets. On
-                        top of the games, there are performances, workshops, exhibitions, food tastings, and music, so
-                        there’s always something happening.
-                    </p>
-                    <p>
-                        The point of Tocatì (allegedly) isn’t just to play — it’s about preserving the traditions behind
-                        these games
-                        and showing how people from different cultures and generations connect through play. It’s
-                        been recognized by UNESCO as an official “Good Practice” for preserving intangible cultural
-                        heritage. <a
-                            href="https://www.italymagazine.com/featured-story/quirky-festival-verona-just-earned-unesco-recognition"
-                            class="list-link">(italymagazine.com)</a>.
-                    </p>
-                </div>
-                <!-- Gallery: Single Horizontal -->
-                <div class="component gallery gallery-single">
-                    <img src="../../assets/images/outside-sources/games.jpg" alt="Games in Motion"
-                        class="gallery-image" />
-                </div>
+                <?php
+                $textBlock = [
+                    'content' => '<p>The festival brings together traditional games from Italy and guest countries. Past editions have featured games from New Zealand, Scotland, and Mexico, all played right on the streets. On top of the games, there are performances, workshops, exhibitions, food tastings, and music, so there\'s always something happening.</p><p>The point of Tocatì (allegedly) isn\'t just to play — it\'s about preserving the traditions behind these games and showing how people from different cultures and generations connect through play. It\'s been recognized by UNESCO as an official "Good Practice" for preserving intangible cultural heritage. <a href="https://www.italymagazine.com/featured-story/quirky-festival-verona-just-earned-unesco-recognition" class="list-link">(italymagazine.com)</a>.</p>'
+                ];
+                include __DIR__ . '/../../components/text-block.php';
+                ?>
+
+                <?php
+                $gallery = ['src' => '../../assets/images/outside-sources/games.jpg', 'alt' => 'Games in Motion'];
+                include __DIR__ . '/../../components/gallery-single.php';
+                ?>
             </div>
         </div>
     </main>
