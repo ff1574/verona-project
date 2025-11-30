@@ -1312,7 +1312,7 @@ p {
   border-radius: var(--border-radius);
   cursor: pointer;
   transition: background-color var(--transition-base), transform var(--transition-base);
-  align-self: flex-start;
+  align-self: flex-end;
 }
 
 .submit-btn:hover {
