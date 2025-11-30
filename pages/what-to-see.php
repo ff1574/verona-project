@@ -1,3 +1,4 @@
+<?php $basePath = '..'; ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,35 +11,7 @@
 </head>
 
 <body>
-      <nav class="navbar">
-      <div class="navbar-container">
-        <a href="../index.html" class="navbar-brand">
-          <span class="brand-main">Nora</span>
-          <span class="brand-sub">in Verona</span>
-        </a>
-
-        <button class="navbar-toggle" aria-label="Toggle navigation">
-          <span class="navbar-toggle-icon"></span>
-          <span class="navbar-toggle-icon"></span>
-          <span class="navbar-toggle-icon"></span>
-        </button>
-
-        <ul class="navbar-menu">
-          <li class="navbar-item">
-            <a href="../index.html" class="navbar-link">Home</a>
-          </li>
-          <li class="navbar-item">
-            <a href="what-to-do.html" class="navbar-link">What to do?</a>
-          </li>
-          <li class="navbar-item">
-            <a href="what-to-see.html" class="navbar-link">What to see?</a>
-          </li>
-          <li class="navbar-item">
-            <a href="what-to-know.html" class="navbar-link">What to know?</a>
-          </li>
-        </ul>
-      </div>
-    </nav>
+  <?php include __DIR__ . '/../components/navbar.php'; ?>
   <main class="container">
     <div class="page-header">
       <h2>What to see?</h2>
@@ -47,7 +20,7 @@
     <section class="content-section">
       <div class="content-left">
 
-        <a href="pages/what-to-see/historic-landmarks.html" class="card">
+        <a href="what-to-see/historic-landmarks.php" class="card">
           <h4 class="text-primary"> HISTORIC LANDMARKS</h4>
           <ul class="content-list">
             <li class="text-font-secondary">Arena di Verona</li>
@@ -59,7 +32,7 @@
           </ul>
         </a>
 
-        <a href="pages/what-to-see/museums-art-collections.html" class="card">
+        <a href="what-to-see/museums-art-collections.php" class="card">
           <h4 class="text-primary">MUSEUMS & GALLERIES</h4>
           <ul class="content-list">
             <li class="text-font-secondary">Palazzo Maffei Casa Museo</li>
@@ -68,7 +41,7 @@
           </ul>
         </a>
 
-        <a href="pages/what-to-see/religious-heritage.html" class="card">
+        <a href="what-to-see/religious-heritage.php" class="card">
           <h4 class="text-primary">RELIGIOUS HERITAGE</h4>
           <ul class="content-list">
             <li class="text-font-secondary">Basilica di San Zeno Maggiore</li>
@@ -88,6 +61,8 @@
       </div>
     </section>
   </main>
+
+  <?php include __DIR__ . '/../components/footer.php'; ?>
 
   <script src="assets/js/script.js"></script>
 </body>

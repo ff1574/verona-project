@@ -18,7 +18,7 @@
     <hr class="divider-thick" />
     <section class="hero-content">
       <div class="cards-container">
-        <a href="pages/what-to-see.html" class="card">
+        <a href="pages/what-to-see.php" class="card">
           <h3 class="card-subtitle">What to see?</h3>
           <p class="card-description">
             Explore the most iconic landmarks and hidden gems throughout the
@@ -27,7 +27,7 @@
           <img src="assets/images/cutouts/what-to-see.png" alt="What to see in Verona" class="card-image" />
         </a>
 
-        <a href="pages/what-to-do.html" class="card">
+        <a href="pages/what-to-do.php" class="card">
           <h3 class="card-subtitle">What to do?</h3>
           <p class="card-description">
             Discover exciting activities and experiences that will make your
@@ -36,7 +36,7 @@
           <img src="assets/images/cutouts/what-to-do.png" alt="What to do in Verona" class="card-image" />
         </a>
 
-        <a href="pages/what-to-know.html" class="card">
+        <a href="pages/what-to-know.php" class="card">
           <h3 class="card-subtitle">What to know?</h3>
           <p class="card-description">
             Essential information and travel tips to help you navigate Verona
@@ -49,15 +49,23 @@
     <hr class="divider-thick" />
     <div class="quote-block">
       <p>
-        <a href="pages/sources.html" class="text-primary">Sources</a>
+        <a href="pages/sources.php" class="text-primary">Sources</a>
       </p>
     </div>
     <div class="quote-block">
       <p>
-        <a href="pages/grading.html" class="text-primary">Grading</a>
+        <a href="pages/grading.php" class="text-primary">Grading</a>
+      </p>
+    </div>
+    <div class="quote-block">
+      <p>
+        <a href="pages/comments.php" class="text-primary">Comments</a>
       </p>
     </div>
   </main>
+
+  <?php include __DIR__ . '/components/footer.php'; ?>
+
   <script src="assets/js/script.js"></script>
 </body>
 

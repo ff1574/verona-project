@@ -1,3 +1,4 @@
+<?php $basePath = '..'; ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,35 +10,7 @@
 </head>
 
 <body>
-    <nav class="navbar">
-        <div class="navbar-container">
-            <a href="../index.html" class="navbar-brand">
-                <span class="brand-main">Nora</span>
-                <span class="brand-sub">in Verona</span>
-            </a>
-
-            <button class="navbar-toggle" aria-label="Toggle navigation">
-                <span class="navbar-toggle-icon"></span>
-                <span class="navbar-toggle-icon"></span>
-                <span class="navbar-toggle-icon"></span>
-            </button>
-
-            <ul class="navbar-menu">
-                <li class="navbar-item">
-                    <a href="../index.html" class="navbar-link">Home</a>
-                </li>
-                <li class="navbar-item">
-                    <a href="what-to-do.html" class="navbar-link">What to do?</a>
-                </li>
-                <li class="navbar-item">
-                    <a href="what-to-see.html" class="navbar-link">What to see?</a>
-                </li>
-                <li class="navbar-item">
-                    <a href="what-to-know.html" class="navbar-link">What to know?</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
+    <?php include __DIR__ . '/../components/navbar.php'; ?>
     <main class="container">
         <section class="hero">
             <h1>Sources</h1>
@@ -180,6 +153,8 @@
             </div>
         </div>
     </main>
+
+    <?php include __DIR__ . '/../components/footer.php'; ?>
 
     <script src="../assets/js/script.js"></script>
 </body>

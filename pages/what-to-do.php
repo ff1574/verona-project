@@ -1,3 +1,4 @@
+<?php $basePath = '..'; ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,35 +11,7 @@
 </head>
 
 <body>
-  <nav class="navbar">
-    <div class="navbar-container">
-      <a href="../index.html" class="navbar-brand">
-        <span class="brand-main">Nora</span>
-        <span class="brand-sub">in Verona</span>
-      </a>
-
-      <button class="navbar-toggle" aria-label="Toggle navigation">
-        <span class="navbar-toggle-icon"></span>
-        <span class="navbar-toggle-icon"></span>
-        <span class="navbar-toggle-icon"></span>
-      </button>
-
-      <ul class="navbar-menu">
-        <li class="navbar-item">
-          <a href="../index.html" class="navbar-link">Home</a>
-        </li>
-        <li class="navbar-item">
-          <a href="what-to-do.html" class="navbar-link">What to do?</a>
-        </li>
-        <li class="navbar-item">
-          <a href="what-to-see.html" class="navbar-link">What to see?</a>
-        </li>
-        <li class="navbar-item">
-          <a href="what-to-know.html" class="navbar-link">What to know?</a>
-        </li>
-      </ul>
-    </div>
-  </nav>
+  <?php include __DIR__ . '/../components/navbar.php'; ?>
 
   <main class="container">
     <div class="page-header">
@@ -47,7 +20,7 @@
 
     <section class="content-section">
       <div class="content-left">
-        <a href="pages/what-to-do/walks-and-outdoors.html" class="card">
+        <a href="what-to-do/walks-and-outdoors.php" class="card">
           <h4 class="text-primary">WALKS & OUTDOORS</h4>
           <ul class="content-list">
             <li class="text-font-secondary">Castel san Pietro (Hill Fortress)</li>
@@ -56,7 +29,7 @@
           </ul>
         </a>
 
-        <a href="pages/what-to-do/cultural-experiences.html" class="card">
+        <a href="what-to-do/cultural-experiences.php" class="card">
           <h4 class="text-primary">CULTURAL EXPERIENCES</h4>
           <ul class="content-list">
             <li class="text-font-secondary">Summer Opera Festival</li>
@@ -67,7 +40,7 @@
           </ul>
         </a>
 
-        <a href="pages/what-to-do/one-day-trips.html" class="card">
+        <a href="what-to-do/one-day-trips.php" class="card">
           <h4 class="text-primary">ONE DAY TRIPS</h4>
           <ul class="content-list">
             <li class="text-font-secondary">Lake Garda</li>
@@ -86,6 +59,8 @@
       </div>
     </section>
   </main>
+
+  <?php include __DIR__ . '/../components/footer.php'; ?>
 
   <script src="../assets/js/script.js"></script>
 </body>

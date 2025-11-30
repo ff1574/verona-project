@@ -1,3 +1,4 @@
+<?php $basePath = '..'; ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,35 +11,7 @@
 </head>
 
 <body>
-    <nav class="navbar">
-        <div class="navbar-container">
-            <a href="../index.html" class="navbar-brand">
-                <span class="brand-main">Nora</span>
-                <span class="brand-sub">in Verona</span>
-            </a>
-
-            <button class="navbar-toggle" aria-label="Toggle navigation">
-                <span class="navbar-toggle-icon"></span>
-                <span class="navbar-toggle-icon"></span>
-                <span class="navbar-toggle-icon"></span>
-            </button>
-
-            <ul class="navbar-menu">
-                <li class="navbar-item">
-                    <a href="../index.html" class="navbar-link">Home</a>
-                </li>
-                <li class="navbar-item">
-                    <a href="what-to-do.html" class="navbar-link">What to do?</a>
-                </li>
-                <li class="navbar-item">
-                    <a href="what-to-see.html" class="navbar-link">What to see?</a>
-                </li>
-                <li class="navbar-item">
-                    <a href="what-to-know.html" class="navbar-link">What to know?</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
+    <?php include __DIR__ . '/../components/navbar.php'; ?>
 
     <main class="container">
         <div class="page-header">
@@ -178,7 +151,7 @@
                 <h3 class="text-primary">9. References</h3>
                 <p>
                     All external images and information sources are properly documented on the dedicated
-                    <a href="sources.html" class="text-primary">Sources</a> page. The majority of photographs are
+                    <a href="sources.php" class="text-primary">Sources</a> page. The majority of photographs are
                     original images taken during personal travel to Verona. Where external images are used (such as for
                     locations not personally visited, like the Roman Theatre), sources include complete attribution with
                     links. Text content draws from personal experience, supplemented by official tourism websites,
@@ -222,10 +195,12 @@
 
         <div class="quote-block">
             <p>
-                <a href="../index.html" class="text-primary">Back to Home</a>
+                <a href="../index.php" class="text-primary">Back to Home</a>
             </p>
         </div>
     </main>
+
+    <?php include __DIR__ . '/../components/footer.php'; ?>
 
     <script src="../assets/js/script.js"></script>
 </body>
