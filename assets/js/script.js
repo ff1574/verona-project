@@ -22,6 +22,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const galleryImages = document.querySelectorAll(".gallery-image");
   let currentIndex = 0;
   let imageArray = [];
+  let isAnimating = false; // Prevent rapid clicks during animation
 
   // Convert NodeList to array and store image data
   galleryImages.forEach((img, index) => {
@@ -48,7 +49,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // Open lightbox
   function openLightbox(index) {
     currentIndex = index;
-    updateLightboxImage();
+    updateLightboxImage("zoom-in"); // Use zoom animation on open
     lightbox.classList.add("lightbox-active");
     document.body.style.overflow = "hidden";
   }
@@ -57,34 +58,51 @@ document.addEventListener("DOMContentLoaded", function () {
   function closeLightbox() {
     lightbox.classList.remove("lightbox-active");
     document.body.style.overflow = "";
+    // Clear any animation classes
+    lightboxImg.className = "lightbox-image";
   }
 
-  // Update lightbox image
-  function updateLightboxImage() {
+  // Update lightbox image with slide animation
+  function updateLightboxImage(animationClass = null) {
+    if (isAnimating && animationClass !== "zoom-in") return;
+
     const currentImage = imageArray[currentIndex];
+
+    // If animation class is provided, apply it
+    if (animationClass) {
+      isAnimating = true;
+      lightboxImg.className = "lightbox-image " + animationClass;
+
+      // Wait for animation to complete before allowing next action
+      setTimeout(() => {
+        isAnimating = false;
+      }, 400); // Match animation duration
+    }
+
+    // Update image source and caption
     lightboxImg.src = currentImage.src;
     lightboxImg.alt = currentImage.alt;
     lightboxCaption.textContent = currentImage.alt;
 
     // Show/hide navigation buttons
-    prevBtn.style.display = currentIndex === 0 ? "none" : "block";
+    prevBtn.style.display = currentIndex === 0 ? "none" : "flex";
     nextBtn.style.display =
-      currentIndex === imageArray.length - 1 ? "none" : "block";
+      currentIndex === imageArray.length - 1 ? "none" : "flex";
   }
 
   // Navigate to previous image
   function prevImage() {
-    if (currentIndex > 0) {
+    if (currentIndex > 0 && !isAnimating) {
       currentIndex--;
-      updateLightboxImage();
+      updateLightboxImage("slide-in-left");
     }
   }
 
   // Navigate to next image
   function nextImage() {
-    if (currentIndex < imageArray.length - 1) {
+    if (currentIndex < imageArray.length - 1 && !isAnimating) {
       currentIndex++;
-      updateLightboxImage();
+      updateLightboxImage("slide-in-right");
     }
   }
 
@@ -118,6 +136,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 document.addEventListener("DOMContentLoaded", function () {
   const navbar = document.querySelector(".navbar");
+  const indicator = document.getElementById("navbar-show-indicator");
   const navbarToggle = document.querySelector(".navbar-toggle");
   const navbarMenu = document.querySelector(".navbar-menu");
 
@@ -128,19 +147,34 @@ document.addEventListener("DOMContentLoaded", function () {
 
   let lastScrollY = window.scrollY;
   let scrollThreshold = 100; // Show navbar after scrolling 100px
+  let manuallyOpened = false; // Track if user clicked the indicator
+
+  // Navbar indicator click handler
+  if (navbar && indicator) {
+    indicator.addEventListener("click", function () {
+      navbar.classList.add("navbar-visible");
+      manuallyOpened = true; // Flag that user manually opened it
+    });
+  }
 
   // Scroll detection
   function handleScroll() {
     const currentScrollY = window.scrollY;
-    
+
     if (currentScrollY > scrollThreshold) {
       navbar.classList.add("navbar-visible");
-    } else {
+      manuallyOpened = false; // Reset flag when auto-showing via scroll
+    } else if (currentScrollY < 50 && !manuallyOpened) {
+      // Only hide if near top AND not manually opened
       navbar.classList.remove("navbar-visible");
       // Close mobile menu if open when navbar hides
       if (navbarMenu.classList.contains("active")) {
         closeMenu();
       }
+    } else if (manuallyOpened && currentScrollY < 10) {
+      // Reset manual flag if user scrolls back to very top
+      manuallyOpened = false;
+      navbar.classList.remove("navbar-visible");
     }
 
     lastScrollY = currentScrollY;

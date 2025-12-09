@@ -12,6 +12,7 @@
 
 <body>
   <?php include __DIR__ . '/../components/navbar.php'; ?>
+
   <main class="container">
     <div class="page-header">
       <h2>What to see?</h2>

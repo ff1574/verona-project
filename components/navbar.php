@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Navbar Component
  * 
@@ -17,6 +18,7 @@ if (!isset($basePath)) {
     $basePath = '.';
 }
 ?>
+
 <nav class="navbar">
     <div class="navbar-container">
         <a href="<?php echo $basePath; ?>/index.php" class="navbar-brand">
@@ -46,3 +48,7 @@ if (!isset($basePath)) {
         </ul>
     </div>
 </nav>
+
+<button id="navbar-show-indicator" class="navbar-show-indicator" aria-label="Show navigation">
+    <span class="indicator-arrow"></span>
+</button>
