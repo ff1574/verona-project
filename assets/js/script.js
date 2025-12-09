@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const galleryImages = document.querySelectorAll(".gallery-image");
   let currentIndex = 0;
   let imageArray = [];
-  let isAnimating = false; // Prevent rapid clicks during animation
+  let isAnimating = false;
 
   // Convert NodeList to array and store image data
   galleryImages.forEach((img, index) => {
@@ -49,7 +49,20 @@ document.addEventListener("DOMContentLoaded", function () {
   // Open lightbox
   function openLightbox(index) {
     currentIndex = index;
-    updateLightboxImage("zoom-in"); // Use zoom animation on open
+    const currentImage = imageArray[currentIndex];
+
+    // Set image immediately on open
+    lightboxImg.src = currentImage.src;
+    lightboxImg.alt = currentImage.alt;
+    lightboxCaption.textContent = currentImage.alt;
+
+    // Apply zoom-in animation
+    lightboxImg.className = "lightbox-image";
+    setTimeout(() => {
+      lightboxImg.classList.add("zoom-in");
+    }, 10);
+
+    updateNavigationButtons();
     lightbox.classList.add("lightbox-active");
     document.body.style.overflow = "hidden";
   }
@@ -58,51 +71,77 @@ document.addEventListener("DOMContentLoaded", function () {
   function closeLightbox() {
     lightbox.classList.remove("lightbox-active");
     document.body.style.overflow = "";
-    // Clear any animation classes
     lightboxImg.className = "lightbox-image";
   }
 
-  // Update lightbox image with slide animation
-  function updateLightboxImage(animationClass = null) {
-    if (isAnimating && animationClass !== "zoom-in") return;
-
-    const currentImage = imageArray[currentIndex];
-
-    // If animation class is provided, apply it
-    if (animationClass) {
-      isAnimating = true;
-      lightboxImg.className = "lightbox-image " + animationClass;
-
-      // Wait for animation to complete before allowing next action
-      setTimeout(() => {
-        isAnimating = false;
-      }, 400); // Match animation duration
-    }
-
-    // Update image source and caption
-    lightboxImg.src = currentImage.src;
-    lightboxImg.alt = currentImage.alt;
-    lightboxCaption.textContent = currentImage.alt;
-
-    // Show/hide navigation buttons
+  // Update navigation button visibility
+  function updateNavigationButtons() {
     prevBtn.style.display = currentIndex === 0 ? "none" : "flex";
     nextBtn.style.display =
       currentIndex === imageArray.length - 1 ? "none" : "flex";
   }
 
+  // Navigate with slide animation
+  function navigateToImage(newIndex, direction) {
+    if (isAnimating || newIndex < 0 || newIndex >= imageArray.length) return;
+
+    isAnimating = true;
+    const outClass =
+      direction === "next" ? "slide-out-left" : "slide-out-right";
+    const inClass = direction === "next" ? "slide-in-right" : "slide-in-left";
+
+    // Step 1: Slide out current image
+    lightboxImg.className = "lightbox-image " + outClass;
+
+    // Step 2: After slide-out completes, change image and slide in
+    setTimeout(() => {
+      currentIndex = newIndex;
+      const newImage = imageArray[currentIndex];
+
+      // Preload the new image
+      const img = new Image();
+      img.onload = function () {
+        // Update DOM
+        lightboxImg.src = newImage.src;
+        lightboxImg.alt = newImage.alt;
+        lightboxCaption.textContent = newImage.alt;
+        updateNavigationButtons();
+
+        // Slide in new image
+        lightboxImg.className = "lightbox-image " + inClass;
+
+        // Reset animation lock after slide-in completes
+        setTimeout(() => {
+          isAnimating = false;
+          lightboxImg.className = "lightbox-image"; // Clean up classes
+        }, 400);
+      };
+
+      img.onerror = function () {
+        // Fallback if image fails to load
+        lightboxImg.src = newImage.src;
+        lightboxImg.alt = newImage.alt;
+        lightboxCaption.textContent = newImage.alt;
+        updateNavigationButtons();
+        isAnimating = false;
+        lightboxImg.className = "lightbox-image";
+      };
+
+      img.src = newImage.src;
+    }, 400); // Wait for slide-out animation to complete
+  }
+
   // Navigate to previous image
   function prevImage() {
-    if (currentIndex > 0 && !isAnimating) {
-      currentIndex--;
-      updateLightboxImage("slide-in-left");
+    if (currentIndex > 0) {
+      navigateToImage(currentIndex - 1, "prev");
     }
   }
 
   // Navigate to next image
   function nextImage() {
-    if (currentIndex < imageArray.length - 1 && !isAnimating) {
-      currentIndex++;
-      updateLightboxImage("slide-in-right");
+    if (currentIndex < imageArray.length - 1) {
+      navigateToImage(currentIndex + 1, "next");
     }
   }
 

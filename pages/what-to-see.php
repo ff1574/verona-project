@@ -65,7 +65,7 @@
 
   <?php include __DIR__ . '/../components/footer.php'; ?>
 
-  <script src="assets/js/script.js"></script>
+  <script src="../assets/js/script.js"></script>
 </body>
 
 </html>
