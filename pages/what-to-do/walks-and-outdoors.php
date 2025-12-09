@@ -113,7 +113,7 @@
                 <?php
                 $gallery = [
                     'horizontal' => [
-                        ['src' => '../../assets/images/outdoors/framed.jpeg', 'alt' => 'Horizontal 1'],
+                        ['src' => '../../assets/images/outdoors/framed.jpeg', 'alt' => 'Santuario from afar'],
                         ['src' => '../../assets/images/outdoors/river-night.JPG', 'alt' => 'View on The church of San Giorgio in Braida at Sunset']
                     ],
                     'vertical' => ['src' => '../../assets/images/outdoors/ponte-pietra/view-on-pietra.JPG', 'alt' => 'Walk by the Adige River']
@@ -122,7 +122,7 @@
                 ?>
 
                 <?php
-                $gallery = ['src' => '../../assets/images/outdoors/ponte-scaligero/landscape.JPG', 'alt' => 'Morning View on the Santuario over the River'];
+                $gallery = ['src' => '../../assets/images/outdoors/ponte-scaligero/landscape.JPG', 'alt' => 'Ponte Scaligieri'];
                 include __DIR__ . '/../../components/gallery-single.php';
                 ?>
             </div>

@@ -112,7 +112,7 @@
                 'main' => ['src' => '../../assets/images/architecture/erbe/landscape.JPG', 'alt' => 'View from the edge of the Piazza'],
                 'grid' => [
                     ['src' => '../../assets/images/architecture/erbe/from-above.JPG', 'alt' => 'View from above on a nice day'],
-                    ['src' => '../../assets/images/architecture/erbe/fruit-stand.JPG', 'alt' => 'vertical aesthetic'],
+                    ['src' => '../../assets/images/architecture/erbe/fruit-stand.JPG', 'alt' => 'Erbe Marketplace fruit stand'],
                     ['src' => '../../assets/images/architecture/erbe/sculpture.JPG', 'alt' => 'Statue of Madonna']
                 ]
             ];

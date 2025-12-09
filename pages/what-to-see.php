@@ -55,7 +55,7 @@
 
       <div class="content-right">
         <div class="content-image">
-          <img src="assets/images/general/genral-maffei-sculpture.JPG" alt="Sights in Verona" />
+          <img src="../assets/images/general/genral-maffei-sculpture.JPG" alt="Maffei Sculpture" />
         </div>
 
       </div>

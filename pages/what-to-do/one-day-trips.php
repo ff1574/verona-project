@@ -45,17 +45,17 @@
             ?>
 
             <?php
-            $gallery = ['src' => '../../assets/images/one-day-trips/baldo/baldo-landscape-main.JPG', 'alt' => 'Castle interior'];
+            $gallery = ['src' => '../../assets/images/one-day-trips/baldo/baldo-landscape-main.JPG', 'alt' => 'My sisters and I at Monte Baldo'];
             include __DIR__ . '/../../components/gallery-single.php';
             ?>
 
             <?php
             $gallery = [
                 'grid' => [
-                    ['src' => '../../assets/images/one-day-trips/baldo/baldo-climber.jpeg', 'alt' => 'Bridge view 1'],
+                    ['src' => '../../assets/images/one-day-trips/baldo/baldo-climber.jpeg', 'alt' => 'View of the Lake from the Funicular'],
                     ['src' => '../../assets/images/one-day-trips/baldo/me-baldo-portrait.jpeg', 'alt' => 'Me at Monte Baldo']
                 ],
-                'main' => ['src' => '../../assets/images/one-day-trips/baldo/baldo-foggy.jpeg', 'alt' => 'Bridge panorama']
+                'main' => ['src' => '../../assets/images/one-day-trips/baldo/baldo-foggy.jpeg', 'alt' => 'Early Morning There']
             ];
             include __DIR__ . '/../../components/gallery-2v-h.php';
             ?>

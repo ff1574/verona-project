@@ -41,7 +41,7 @@
                 ?>
 
                 <?php
-                $gallery = ['src' => '../../assets/images/architecture/arena/scenography-grouped.png', 'alt' => 'Me and Verona in the Background'];
+                $gallery = ['src' => '../../assets/images/architecture/arena/scenography-grouped.png', 'alt' => 'Me next to Stage Equipment for the Opera'];
                 include __DIR__ . '/../../components/gallery-single.php';
                 ?>
             </div>
@@ -83,7 +83,7 @@
                 ?>
 
                 <?php
-                $gallery = ['src' => '../../assets/images/outside-sources/vinitaly-web.png', 'alt' => 'Me at the Gate on the Start of the Pietra Bridge'];
+                $gallery = ['src' => '../../assets/images/outside-sources/vinitaly-web.png', 'alt' => 'Vinitaly Website'];
                 include __DIR__ . '/../../components/gallery-single.php';
                 ?>
             </div>
@@ -100,7 +100,7 @@
                 </div>
 
                 <?php
-                $gallery = ['src' => '../../assets/images/outside-sources/vinitaly-photo.jpg', 'alt' => 'Cool Photo my Mom took of me on the Scaligero Bridge'];
+                $gallery = ['src' => '../../assets/images/outside-sources/vinitaly-photo.jpg', 'alt' => 'One of Vinitaly Locations'];
                 include __DIR__ . '/../../components/gallery-single.php';
                 ?>
             </div>

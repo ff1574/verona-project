@@ -39,7 +39,7 @@
                 ?>
 
                 <?php
-                $gallery = ['src' => '../../assets/images/museums/maffei/balcony.JPG', 'alt' => 'Arena di Verona'];
+                $gallery = ['src' => '../../assets/images/museums/maffei/balcony.JPG', 'alt' => 'View from the Palazzo Maffei Balcony'];
                 include __DIR__ . '/../../components/gallery-single.php';
                 ?>
 
@@ -52,10 +52,10 @@
 
                 <?php
                 $gallery = [
-                    'vertical' => ['src' => '../../assets/images/museums/maffei/staircase.JPG', 'alt' => 'Vertical image'],
+                    'vertical' => ['src' => '../../assets/images/museums/maffei/staircase.JPG', 'alt' => 'Palazzo Maffei Staircase'],
                     'horizontal' => [
-                        ['src' => '../../assets/images/museums/maffei/ready-made.JPG', 'alt' => 'Horizontal 1'],
-                        ['src' => '../../assets/images/museums/maffei/wave.jpeg', 'alt' => 'Horizontal 2']
+                        ['src' => '../../assets/images/museums/maffei/ready-made.JPG', 'alt' => 'Courtyard Ready-Made Art Installation'],
+                        ['src' => '../../assets/images/museums/maffei/wave.jpeg', 'alt' => 'Hokusai Great Wave']
                     ]
                 ];
                 include __DIR__ . '/../../components/gallery-v-2h.php';
@@ -66,11 +66,11 @@
             <div class="page-split-right">
                 <?php
                 $gallery = [
-                    'main' => ['src' => '../../assets/images/museums/maffei/interior1.jpeg', 'alt' => 'Arena panorama'],
+                    'main' => ['src' => '../../assets/images/museums/maffei/interior1.jpeg', 'alt' => 'Palazzo Maffei Interior'],
                     'grid' => [
-                        ['src' => '../../assets/images/museums/maffei/horizons-left.JPG', 'alt' => 'Detail 1'],
-                        ['src' => '../../assets/images/museums/maffei/warhol.JPG', 'alt' => 'Detail 2'],
-                        ['src' => '../../assets/images/museums/maffei/horizons-right.JPG', 'alt' => 'Detail 3']
+                        ['src' => '../../assets/images/museums/maffei/horizons-left.JPG', 'alt' => 'Horizons part1'],
+                        ['src' => '../../assets/images/museums/maffei/warhol.JPG', 'alt' => 'Warhol Detail'],
+                        ['src' => '../../assets/images/museums/maffei/horizons-right.JPG', 'alt' => 'Horizons part2']
                     ]
                 ];
                 include __DIR__ . '/../../components/gallery-h-3v.php';
@@ -86,8 +86,8 @@
                 <?php
                 $gallery = [
                     'images' => [
-                        ['src' => '../../assets/images/museums/maffei/chair.jpeg', 'alt' => 'Description 1'],
-                        ['src' => '../../assets/images/museums/maffei/hope.JPG', 'alt' => 'Description 2']
+                        ['src' => '../../assets/images/museums/maffei/chair.jpeg', 'alt' => 'Bauhuas Chair'],
+                        ['src' => '../../assets/images/museums/maffei/hope.JPG', 'alt' => 'Hope Installation']
                     ]
                 ];
                 include __DIR__ . '/../../components/gallery-2h.php';
@@ -125,7 +125,7 @@
 
             <?php
             $gallery = [
-                'main' => ['src' => '../../assets/images/museums/ragione/general-ragione.JPG', 'alt' => 'Arena panorama'],
+                'main' => ['src' => '../../assets/images/museums/ragione/general-ragione.JPG', 'alt' => 'In front of Palazzo della Ragione'],
                 'grid' => [
                     ['src' => '../../assets/images/museums/ragione/achille-forti/backstage.jpeg', 'alt' => "Back of an Installation from a Temporary Exhibition in Galleria d'Arte Moderna Achille Forti"],
                     ['src' => '../../assets/images/museums/ragione/achille-forti/windows.jpeg', 'alt' => "Temporary Exhibition in Galleria d'Arte Moderna Achille Forti"],

@@ -35,7 +35,7 @@
       <!-- Right Side -->
       <div class="page-split-right">
         <?php
-        $gallery = ['src' => '../assets/images/general/IMG_9607.JPG', 'alt' => 'Historic Verona'];
+        $gallery = ['src' => '../assets/images/general/IMG_9607.JPG', 'alt' => 'Verona Landscape'];
         include __DIR__ . '/../components/gallery-single.php';
         ?>
       </div>
